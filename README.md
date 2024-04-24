@@ -1,4 +1,4 @@
-# cadenas 2024
+# cadenas
 
 > Anggota Kelompok:
 
