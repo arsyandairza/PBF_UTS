@@ -7,7 +7,7 @@ const ManageUser: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onDashboardClick = useCallback(() => {
-    navigate("/");
+    navigate("/dashboard");
   }, [navigate]);
 
   const onManageDoorContainerClick = useCallback(() => {

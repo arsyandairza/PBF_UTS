@@ -11,7 +11,7 @@ const ManageDoor: FunctionComponent = () => {
   }, [navigate]);
 
   const onDashboardClick = useCallback(() => {
-    navigate("/");
+    navigate("/dashboard");
   }, [navigate]);
 
   const onFrameContainerClick = useCallback(() => {
