@@ -1,6 +1,6 @@
 # cadenas 2024
 
-Anggota Kelompok:
+> Anggota Kelompok:
 
 01 - Afdhol Affanuddin (2141720253)
 02 -Ahmad Bima Tristan Ibrahim (2141720077)
