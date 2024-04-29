@@ -42,3 +42,49 @@ module.exports = {
     preflight: false,
   },
 };
+
+// Landing Page
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        white: "#fff",
+        lightgray: "#d4d5d4",
+        linen: "#f2ebe3",
+      },
+      spacing: {},
+      fontFamily: {
+        poppins: "Poppins",
+      },
+      borderRadius: {
+        xl: "20px",
+      },
+    },
+    fontSize: {
+      base: "25px",
+      sm: "14px",
+      xl: "20px",
+      "31xl": "50px",
+      "11xl": "30px",
+      "21xl": "40px",
+      inherit: "inherit",
+    },
+    screens: {
+      mq750: {
+        raw: "screen and (max-width: 750px)",
+      },
+      mq675: {
+        raw: "screen and (max-width: 675px)",
+      },
+      mq450: {
+        raw: "screen and (max-width: 450px)",
+      },
+    },
+  },
+  corePlugins: {
+    preflight: false,
+  },
+};
