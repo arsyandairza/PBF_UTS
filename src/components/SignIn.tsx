@@ -12,7 +12,7 @@ const SignIn: FunctionComponent = () => {
         className="self-stretch flex-1 relative rounded-tl-xl rounded-tr-none rounded-br-none rounded-bl-xl max-w-full overflow-hidden max-h-full object-cover min-w-[309px] min-h-[680px] z-[1]"
         loading="lazy"
         alt=""
-        src="/frame-27@2x.png"
+        src="/imgLandingPage.png"
       />
       <div className="w-[394px] rounded-tl-none rounded-tr-xl rounded-br-xl rounded-bl-none overflow-hidden shrink-0 flex flex-col items-end justify-start pt-[26px] pb-[76px] pr-[41px] pl-[18px] box-border gap-[122px] min-w-[394px] max-w-full z-[2] mq675:min-w-full mq450:gap-[61px] mq750:flex-1 mq750:pt-5 mq750:pb-[49px] mq750:box-border">
         <div className="w-[311px] flex flex-row items-start justify-end py-0 px-[34px] box-border">
@@ -44,13 +44,13 @@ const SignIn: FunctionComponent = () => {
                   className="w-[7%] h-6 absolute overflow-hidden shrink-0 z-[1] right-[0px] bottom-[0px] [pointer-events:none]"
                   loading="lazy"
                   alt=""
-                  src="/clarityeyehidesolid.svg"
+                  src="/buttonLandingPage.svg"
                 />
                 <img
                   className="w-[7%] h-6 absolute overflow-hidden shrink-0 z-[1] right-[0px] bottom-[0px] [pointer-events:none]"
                   loading="lazy"
                   alt=""
-                  src="/clarityeyehidesolid.svg"
+                  src="/buttonLandingPage.svg"
                 />
               </div>
               <div className="self-stretch h-0.5 relative box-border border-t-[2px] border-solid border-lightgray" />

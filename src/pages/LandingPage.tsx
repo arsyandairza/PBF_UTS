@@ -14,7 +14,7 @@ const LandingPage: FunctionComponent = () => {
               className="w-[66.5px] h-[70px] relative"
               loading="lazy"
               alt=""
-              src="/group.svg"
+              src="/LogoLandingPage.svg"
             />
           </div>
         </div>
