@@ -1,9 +1,13 @@
 import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignIn: FunctionComponent = () => {
+  const navigate = useNavigate();
+
   const onFrameContainerClick = useCallback(() => {
-    // Please sync "Manage User" to the project
-  }, []);
+    navigate("/dashboard");
+  }, [navigate]);
+
 
   return (
     <section className="w-[870px] [backdrop-filter:blur(4px)] rounded-xl overflow-hidden flex flex-row items-end justify-center relative [row-gap:20px] max-w-full text-center text-31xl text-white font-poppins mq750:flex-wrap">
