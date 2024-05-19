@@ -5,7 +5,7 @@ const EditData: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onBackTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/manage-user");
   }, [navigate]);
 
   return (
@@ -51,6 +51,7 @@ const EditData: FunctionComponent = () => {
           className="absolute top-[157px] left-[80px] w-[50px] h-[50px] overflow-hidden"
           alt=""
           src="/ionchevronbackoutline.svg"
+          onClick={onBackTextClick}
         />
       </div>
     </div>
