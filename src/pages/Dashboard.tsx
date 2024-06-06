@@ -10,8 +10,8 @@ const Dashboard: FunctionComponent = () => {
     navigate("/manage-user");
   }, [navigate]);
 
-  const onManageDoorContainerClick = useCallback(() => {
-    navigate("/manage-door");
+  const onLogContainerClick = useCallback(() => {
+    navigate("/log-activity");
   }, [navigate]);
 
   const onFrameContainerClick = useCallback(() => {
@@ -19,7 +19,7 @@ const Dashboard: FunctionComponent = () => {
   }, [navigate]);
 
   const onFrameContainer2Click = useCallback(() => {
-    navigate("/manage-door");
+    navigate("/log-activity");
   }, [navigate]);
 
   return (
@@ -27,9 +27,19 @@ const Dashboard: FunctionComponent = () => {
       <Navbar1 />
       <Sidebar
         onManageUserContainerClick={onManageUserContainerClick}
-        onManageDoorContainerClick={onManageDoorContainerClick}
+        onLogContainerClick={onLogContainerClick}
       />
-      <div className="absolute top-[297px] left-[252px] rounded-3xs [background:linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] [backdrop-filter:blur(4px)] w-[560px] overflow-hidden flex flex-row flex-wrap items-end justify-start p-[15px] box-border gap-[26px_290px] text-base">
+      <div className="absolute top-[120px] left-[450px] flex space-x-8">
+        <div className="w-[220px] h-[120px] bg-[linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] rounded-lg flex flex-col justify-center pl-[15px] text-left">
+          <div className="text-lg font-semibold">Total User</div>
+          <div className="text-[24px] font-semibold mt-[20px]">7,265</div>
+        </div>
+        <div className="w-[220px] h-[120px] bg-[linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] rounded-lg flex flex-col justify-center pl-[15px] text-left">
+          <div className="text-lg font-semibold">Total Device</div>
+          <div className="text-[24px] font-semibold mt-[20px]">7,265</div>
+        </div>
+      </div>
+      <div className="absolute top-[297px] left-[450px] rounded-3xs [background:linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] [backdrop-filter:blur(4px)] w-[560px] overflow-hidden flex flex-row flex-wrap items-end justify-start p-[15px] box-border gap-[26px_290px] text-base">
         <img
           className="w-[530px] relative rounded-8xs h-[186px] object-cover"
           alt=""
@@ -47,7 +57,7 @@ const Dashboard: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[296px] left-[848px] rounded-3xs [background:linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] [backdrop-filter:blur(4px)] w-[560px] h-[292px] overflow-hidden">
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[296px] left-[1100px] rounded-3xs [background:linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] [backdrop-filter:blur(4px)] w-[560px] h-[292px] overflow-hidden">
         <div className="absolute top-[233px] left-[22px] text-base font-semibold font-poppins text-white text-left flex items-center w-[225px] h-7 [text-shadow:-3px_3px_4px_#000] mix-blend-normal">
           Manage Smart Door Device
         </div>
