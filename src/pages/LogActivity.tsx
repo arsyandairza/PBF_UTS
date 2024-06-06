@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar1 from "../components/Navbar1";
 
-const ManageDoor: FunctionComponent = () => {
+const LogActivity: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const onDashboardClick = useCallback(() => {
@@ -63,4 +63,4 @@ const ManageDoor: FunctionComponent = () => {
   );
 };
 
-export default ManageDoor;
+export default LogActivity;

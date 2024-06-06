@@ -86,7 +86,6 @@ const ManageUser = () => {
           src="/phmagnifyingglass.svg"
         />
       </div>
-
       {/* Table */}
       <div style={{ position: 'relative', top: '170px', width: '80%', left: '300px' }}>
         <CTable bordered borderColor="black" style={{
@@ -110,7 +109,7 @@ const ManageUser = () => {
                 <CTableDataCell style={{ textAlign: 'center' }}>{user.username}</CTableDataCell>
                 <CTableDataCell style={{ textAlign: 'center' }}>{user.pin}</CTableDataCell>
                 <CTableDataCell style={{ textAlign: 'center' }}>
-                  <button onClick={() => navigate(`/edit-user/${user.no}`)} style={{ background: '#00f', color: '#fff', padding: '7px 18px', border: 'none', borderRadius: '5px' }}>
+                  <button onClick={() => navigate(`/edit-data/${user.no}`)} style={{ background: '#00f', color: '#fff', padding: '7px 18px', border: 'none', borderRadius: '5px' }}>
                     Edit
                   </button>
                 </CTableDataCell>

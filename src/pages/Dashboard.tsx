@@ -59,7 +59,7 @@ const Dashboard: FunctionComponent = () => {
       </div>
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[296px] left-[1100px] rounded-3xs [background:linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] [backdrop-filter:blur(4px)] w-[560px] h-[292px] overflow-hidden">
         <div className="absolute top-[233px] left-[22px] text-base font-semibold font-poppins text-white text-left flex items-center w-[225px] h-7 [text-shadow:-3px_3px_4px_#000] mix-blend-normal">
-          Manage Smart Door Device
+          Monitoring Camera
         </div>
         <img
           className="absolute top-[15px] left-[15px] rounded-8xs w-[530px] h-[186px] object-cover"
