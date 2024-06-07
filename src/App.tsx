@@ -7,6 +7,7 @@ import ManageUser from "./pages/ManageUser";
 import LogActivity from "./pages/LogActivity";
 import LandingPage from "./pages/LandingPage";
 import EditData from "./pages/EditData";
+import Monitoring from "./pages/Monitoring";
 function App() {
   return (
     <Routes>
@@ -15,6 +16,7 @@ function App() {
       <Route path="/manage-user" element={<ManageUser />} />
       <Route path="/log-activity" element={<LogActivity />} />
       <Route path="/edit-data" element={<EditData />} />
+      <Route path="/monitoring" element={<Monitoring />} />
     </Routes>
   );
 }

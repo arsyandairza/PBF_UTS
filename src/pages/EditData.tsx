@@ -1,6 +1,6 @@
 import { FunctionComponent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const EditData: FunctionComponent = () => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const EditData: FunctionComponent = () => {
         />
 
         <div className="absolute top-[436px] left-[88px] font-semibold flex items-center w-[238px] h-[49px]">
-          Email
+          Personal PIN
         </div>
         <TextField
           sx={{
@@ -71,46 +71,15 @@ const EditData: FunctionComponent = () => {
             },
           }}
           variant="outlined"
-          label="Email"
-          InputProps={{ disableUnderline: true }}
-        />
-
-        <div className="absolute top-[619px] left-[88px] font-semibold flex items-center w-[238px] h-[49px]">
-          Personal PIN
-        </div>
-        <TextField
-          sx={{
-            backgroundColor: "gainsboro",
-            position: "absolute",
-            top: "668px",
-            left: "88px",
-            borderRadius: "0.375rem",
-            width: "1064px",
-            height: "57px",
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                border: "none",
-              },
-              "&:hover fieldset": {
-                border: "none",
-              },
-              "&.Mui-focused fieldset": {
-                border: "none",
-              },
-            },
-          }}
-          variant="outlined"
           label="PIN"
           type="password"
           InputProps={{ disableUnderline: true }}
         />
-
         <button className="cursor-pointer [border:none] p-0 bg-skyblue-100 absolute top-[787px] left-[1023px] rounded-md w-[129px] h-[73px] overflow-hidden hover:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]">
-          <div className="absolute top-[0px] left-[0px] text-xl font-semibold font-poppins text-white text-center flex items-center justify-center w-[129px] h-[73px]">
-            Update
+          <div className="absolute top-[0px] left-[0px] bottom- text-xl font-semibold font-poppins text-white text-center flex items-center justify-center w-[129px] h-[73px]">
+            Save
           </div>
         </button>
-
         <div
           className="absolute top-[165px] left-[139px] text-[25px] font-semibold flex items-center w-[124px] h-[34px] cursor-pointer"
           onClick={onBackTextClick}>

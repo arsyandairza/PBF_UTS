@@ -1,9 +1,19 @@
-import { FunctionComponent, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar1 from "../components/Navbar1";
+import {
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
+} from "@coreui/react";
+import "@coreui/coreui/dist/css/coreui.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const LogActivity: FunctionComponent = () => {
+const LogActivity = () => {
   const navigate = useNavigate();
 
   const onDashboardClick = useCallback(() => {
@@ -14,50 +24,200 @@ const LogActivity: FunctionComponent = () => {
     navigate("/manage-user");
   }, [navigate]);
 
+  const onMonitoringContainerClick = useCallback(() => {
+    navigate("/monitoring");
+  }, [navigate]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const activities = [
+    {
+      no: 1,
+      date: "2023-06-07",
+      time: "09:00 AM",
+      user: "user1",
+      activity: "Logged In",
+      photo: "path/to/photo1.jpg", // Add photo path
+    },
+    {
+      no: 2,
+      date: "2023-06-07",
+      time: "09:30 AM",
+      user: "user2",
+      activity: "Viewed Dashboard",
+      photo: "path/to/photo2.jpg", // Add photo path
+    },
+    // Add more activities as needed
+  ];
+
+  const filteredActivities = activities.filter(
+    (activity) =>
+      activity.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      activity.activity.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const indexOfLastActivity = currentPage * itemsPerPage;
+  const indexOfFirstActivity = indexOfLastActivity - itemsPerPage;
+  const currentActivities = filteredActivities.slice(
+    indexOfFirstActivity,
+    indexOfLastActivity
+  );
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <div
-      className="w-full relative [background:linear-gradient(180deg,#092230,#1c6a96)] h-[1024px] overflow-hidden cursor-pointer text-center text-base text-white font-poppins">
-      <Sidebar 
-      onManageUserContainerClick={onManageUserContainerClick}
-      onDashboardContainerClick={onDashboardClick}/>
+      className="w-full relative"
+      style={{
+        background: "linear-gradient(180deg, #092230, #1c6a96)",
+        height: "1024px",
+        overflow: "hidden",
+        color: "white",
+        fontFamily: "Poppins, sans-serif",
+      }}
+    >
+      <Sidebar
+        onManageUserContainerClick={onManageUserContainerClick}
+        onDashboardContainerClick={onDashboardClick}
+        onMonitoringCameraContainerClick={onMonitoringContainerClick}
+      />
       <Navbar1 />
-      <div className="absolute top-[277px] left-[410px] rounded-2xl [background:linear-gradient(25.18deg,_rgba(113,_199,_236,_0.75)_16.96%,_rgba(70,_102,_116,_0.75)_45.33%)] w-80 h-[470px] overflow-hidden">
-        <img
-          className="absolute top-[0px] left-[0px] w-80 h-[370px] overflow-hidden object-cover"
-          alt=""
-          src="/image@2x.png"
+      {/* Header */}
+      <div
+        style={{
+          position: "relative",
+          top: "170px",
+          width: "80%",
+          left: "300px",
+          padding: "20px",
+          backgroundColor: "#71C7EC",
+          color: "white",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderTopLeftRadius: "14px",
+          borderTopRightRadius: "14px",
+        }}
+      >
+        <h1 style={{ margin: 1 }}>Log Activity</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            padding: "5px 30px 5px 10px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            position: "relative",
+            outline: "none",
+          }}
         />
-        <div
-          className="absolute top-[403px] left-[203px] rounded-md [background:linear-gradient(256.59deg,#71c7ec_7.87%,#092230_76.37%)] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-[85px] h-[41px] overflow-hidden cursor-pointer hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
-        >
-          <div className="absolute top-[0px] left-[0px] font-semibold flex items-center justify-center w-[85px] h-[41px]">
-            Edit
-          </div>
-        </div>
-        <div className="absolute top-[391px] left-[24px] text-sm font-semibold flex items-center justify-center w-[133px] h-[23px]">
-          Main Smart Door
-        </div>
+        <img
+          className="absolute top-[50%] right-[35px] transform translate-y-[-50%] w-5 h-5 overflow-hidden"
+          alt=""
+          src="/phmagnifyingglass.svg"
+        />
       </div>
-      <div className="absolute top-[277px] left-[930px] rounded-2xl [background:linear-gradient(25.18deg,_rgba(113,_199,_236,_0.75)_16.96%,_rgba(70,_102,_116,_0.75)_45.33%)] w-80 h-[470px] overflow-hidden">
-        <div className="absolute top-[0px] left-[0px] w-80 h-[370px] overflow-hidden">
-          <div className="absolute top-[1px] left-[0px] rounded-2xl bg-lightgray w-80 h-[370px]" />
-          <img
-            className="absolute top-[0px] left-[0px] w-80 h-[370px] object-cover"
-            alt=""
-            src="/image@2x.png"
-          />
-        </div>
-        <div
-          className="absolute top-[403px] left-[202px] rounded-md [background:linear-gradient(256.59deg,#71c7ec_7.87%,#092230_76.37%)] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-[85px] h-[41px] overflow-hidden cursor-pointer hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
-          
+      {/* Table */}
+      <div
+        style={{
+          position: "relative",
+          top: "170px",
+          width: "80%",
+          left: "300px",
+        }}
+      >
+        <CTable
+          bordered
+          borderColor="black"
+          style={{
+            backgroundColor: "white",
+            overflow: "hidden",
+          }}
         >
-          <div className="absolute top-[0px] left-[0px] font-semibold flex items-center justify-center w-[85px] h-[41px]">
-            Edit
-          </div>
-        </div>
-        <div className="absolute top-[391px] left-[10px] text-sm font-semibold flex items-center justify-center w-[166px] h-[23px]">
-          Bedroom Smart Door
-        </div>
+          <CTableHead style={{ backgroundColor: "#f5f5f5" }}>
+            <CTableRow>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                No.
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                Date
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                Time
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                User
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                Activity
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col" style={{ textAlign: "center" }}>
+                Photo
+              </CTableHeaderCell>
+            </CTableRow>
+          </CTableHead>
+          <CTableBody>
+            {currentActivities.map((activity, index) => (
+              <CTableRow key={index}>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  {activity.no}
+                </CTableDataCell>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  {activity.date}
+                </CTableDataCell>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  {activity.time}
+                </CTableDataCell>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  {activity.user}
+                </CTableDataCell>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  {activity.activity}
+                </CTableDataCell>
+                <CTableDataCell style={{ textAlign: "center" }}>
+                  <img
+                    src={activity.photo}
+                    style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+                  />
+                </CTableDataCell>
+              </CTableRow>
+            ))}
+          </CTableBody>
+        </CTable>
+        {filteredActivities.length > itemsPerPage && (
+          <ul
+            style={{
+              listStyleType: "none",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+            }}
+          >
+            {Array.from(
+              { length: Math.ceil(filteredActivities.length / itemsPerPage) },
+              (_, index) => (
+                <li key={index} style={{ marginRight: "5px" }}>
+                  <button
+                    onClick={() => paginate(index + 1)}
+                    style={{
+                      background: "#00f",
+                      color: "#fff",
+                      padding: "7px 10px",
+                      border: "none",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              )
+            )}
+          </ul>
+        )}
       </div>
     </div>
   );

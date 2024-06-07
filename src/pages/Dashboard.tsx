@@ -14,6 +14,10 @@ const Dashboard: FunctionComponent = () => {
     navigate("/log-activity");
   }, [navigate]);
 
+  const onMonitoringContainerClick = useCallback(() => {
+    navigate("/monitoring");
+  }, [navigate]);
+
   const onFrameContainerClick = useCallback(() => {
     navigate("/manage-user");
   }, [navigate]);
@@ -28,6 +32,7 @@ const Dashboard: FunctionComponent = () => {
       <Sidebar
         onManageUserContainerClick={onManageUserContainerClick}
         onLogContainerClick={onLogContainerClick}
+        onMonitoringCameraContainerClick={onMonitoringContainerClick}
       />
       <div className="absolute top-[120px] left-[450px] flex space-x-8">
         <div className="w-[220px] h-[120px] bg-[linear-gradient(255.07deg,_rgba(113,_199,_236,_0.75)_33.46%,_rgba(70,_102,_116,_0.75))] rounded-lg flex flex-col justify-center pl-[15px] text-left">
