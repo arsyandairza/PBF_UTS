@@ -4,43 +4,48 @@ export type SidebarType = {
   /** Action props */
   onDashboardContainerClick?: () => void;
   onManageUserContainerClick?: () => void;
-  onManageDoorContainerClick?: () => void;
+  onLogContainerClick?: () => void;
+  onMonitoringCameraContainerClick?: () => void;
 };
 
 const Sidebar: FunctionComponent<SidebarType> = ({
   onDashboardContainerClick,
   onManageUserContainerClick,
-  onManageDoorContainerClick,
+  onLogContainerClick,
+  onMonitoringCameraContainerClick,
 }) => {
   return (
     <div className="absolute top-[0px] left-[0px] bg-skyblue-200 [backdrop-filter:blur(4px)] w-[220px] h-[1024px] overflow-hidden text-left text-xs text-white font-poppins">
       <div
         className="absolute top-[297px] left-[15px] w-[191px] h-[50px] overflow-hidden cursor-pointer hover:w-[191px] hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
-        onClick={onManageDoorContainerClick}
+        onClick={onLogContainerClick}
       >
-        <img
-          className="absolute h-[28.4%] w-[3.25%] top-[36%] right-[0%] bottom-[35.6%] left-[96.75%] max-w-full overflow-hidden max-h-full object-contain"
-          alt=""
-          src="/vector.svg"
-        />
         <div className="absolute h-1/5 w-[66.49%] top-[40%] left-[21.47%] flex items-center">
-          Manage Door
+          Log Activity
         </div>
         <img
           className="absolute h-[48%] w-[12.57%] top-[26%] right-[87.43%] bottom-[26%] left-[0%] max-w-full overflow-hidden max-h-full"
           alt=""
-          src="/akariconsdoor.svg"
+          src="/log.svg"
+        />
+      </div>
+      <div
+        className="absolute top-[353px] left-[15px] w-[191px] h-[50px] overflow-hidden cursor-pointer hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
+        onClick={onMonitoringCameraContainerClick}
+      >
+        <div className="absolute h-1/5 w-[66.49%] top-[40%] left-[21.47%] flex items-center">
+          Monitoring Camera
+        </div>
+        <img
+          className="absolute h-[48%] w-[12.57%] top-[26%] right-[87.43%] bottom-[26%] left-[0%] max-w-full overflow-hidden max-h-full"
+          alt=""
+          src="/monitor.svg"
         />
       </div>
       <div
         className="absolute top-[233px] left-[15px] w-[191px] h-[50px] overflow-hidden cursor-pointer hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
         onClick={onManageUserContainerClick}
       >
-        <img
-          className="absolute h-[28.4%] w-[3.25%] top-[36%] right-[0%] bottom-[35.6%] left-[96.75%] max-w-full overflow-hidden max-h-full object-contain"
-          alt=""
-          src="/vector.svg"
-        />
         <div className="absolute h-1/5 w-[66.49%] top-[40%] left-[21.47%] flex items-center">
           Manage User
         </div>

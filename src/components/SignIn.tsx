@@ -1,13 +1,28 @@
 import { FunctionComponent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const SignIn: FunctionComponent = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const onFrameContainerClick = useCallback(() => {
     navigate("/dashboard");
   }, [navigate]);
-
 
   return (
     <section className="w-[870px] [backdrop-filter:blur(4px)] rounded-xl overflow-hidden flex flex-row items-end justify-center relative [row-gap:20px] max-w-full text-center text-31xl text-white font-poppins mq750:flex-wrap">
@@ -20,7 +35,9 @@ const SignIn: FunctionComponent = () => {
       />
       <div className="w-[394px] rounded-tl-none rounded-tr-xl rounded-br-xl rounded-bl-none overflow-hidden shrink-0 flex flex-col items-end justify-start pt-[26px] pb-[76px] pr-[41px] pl-[18px] box-border gap-[122px] min-w-[394px] max-w-full z-[2] mq675:min-w-full mq450:gap-[61px] mq750:flex-1 mq750:pt-5 mq750:pb-[49px] mq750:box-border">
         <div className="w-[311px] flex flex-row items-start justify-end py-0 px-[34px] box-border">
-          <h1 className="m-0 flex-1 relative text-inherit font-semibold font-inherit mq450:text-11xl mq750:text-21xl">
+          <h1
+            className="m-0 flex-1 relative text-inherit font-semibold font-inherit"
+            style={{ fontSize: "50px" }}>
             Sign In
           </h1>
         </div>
@@ -29,47 +46,61 @@ const SignIn: FunctionComponent = () => {
             <h3 className="m-0 w-[183px] relative text-inherit font-semibold font-inherit flex items-center mq450:text-base">
               Email/Username
             </h3>
-            <input
-              className="[border:none] [outline:none] bg-[transparent] self-stretch h-[34px] flex flex-col items-start justify-start pt-0 px-0 pb-[13px] box-border font-poppins font-semibold text-sm text-lightgray min-w-[201px]"
-              placeholder="Username"
-              type="text"
-            />
-            <h3 className="m-0 w-[183px] relative text-inherit font-semibold font-inherit flex items-center mq450:text-base">
-              Password
-            </h3>
             <div className="self-stretch flex flex-col items-start justify-start gap-[2px]">
               <div className="relative [border:none] bg-[transparent] self-stretch flex flex-row items-start justify-between box-border min-w-[201px] gap-[20px]">
                 <input
                   className="[outline:none] pt-0 px-0 pb-[9px] font-poppins font-semibold text-sm text-lightgray [border:none] w-full h-full [background:transparent] relative z-[3]"
-                  placeholder="Password"
+                  placeholder="Username"
                   type="text"
-                />
-                <img
-                  className="w-[7%] h-6 absolute overflow-hidden shrink-0 z-[1] right-[0px] bottom-[0px] [pointer-events:none]"
-                  loading="lazy"
-                  alt=""
-                  src="/buttonLandingPage.svg"
-                />
-                <img
-                  className="w-[7%] h-6 absolute overflow-hidden shrink-0 z-[1] right-[0px] bottom-[0px] [pointer-events:none]"
-                  loading="lazy"
-                  alt=""
-                  src="/buttonLandingPage.svg"
+                  value={username}
+                  onChange={handleUsernameChange}
                 />
               </div>
               <div className="self-stretch h-0.5 relative box-border border-t-[2px] border-solid border-lightgray" />
             </div>
-          </div>
-          <button className="cursor-pointer [border:none] py-0 px-[61px] bg-[transparent] w-[312px] flex flex-row items-start justify-end box-border mq450:pl-5 mq450:pr-5 mq450:box-border">
-            <div
-              className="flex-1 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-md [background:linear-gradient(256.59deg,_#71c7ec_7.87%,_#092230_76.37%)] overflow-hidden flex flex-row items-start justify-start pt-0 px-0 pb-[41px] whitespace-nowrap cursor-pointer hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1]"
-              onClick={onFrameContainerClick}
-            >
-              <div className="flex-1 relative text-base font-semibold font-poppins text-white text-center">
-                Sign In
+            <h3 className="m-0 w-[183px] relative text-inherit font-semibold font-inherit flex items-center mq450:text-base">
+              Password
+            </h3>
+            <div className="self-stretch flex flex-col items-start justify-start gap-[2px] relative">
+              <div className="relative [border:none] bg-[transparent] self-stretch flex flex-row items-start justify-between box-border min-w-[201px] gap-[20px]">
+                <input
+                  className="[outline:none] pt-0 px-0 pb-[9px] font-poppins font-semibold text-sm text-lightgray [border:none] w-full h-full [background:transparent] relative z-[3]"
+                  placeholder="Password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <div className="absolute right-0 top-0 bottom-0 flex items-center pr-2">
+                  <img
+                    src="/buttonLandingPage.svg"
+                    alt="Show Password"
+                    className="h-6 w-6 cursor-pointer"
+                    onClick={toggleShowPassword}
+                  />
+                </div>
               </div>
+              <div className="self-stretch h-0.5 relative box-border border-t-[2px] border-solid border-lightgray" />
             </div>
-          </button>
+            <button
+                className="mt-4 w-full font-poppins text-lg hover:animate-[1s_ease_0s_infinite_normal_none_shadow-inset-center] hover:opacity-[1] cursor-pointer"
+                style={{
+                  display: "block",
+                  width: "190px",
+                  height: "65px",
+                  background: "linear-gradient(256.59deg,#71c7ec 7.87%, #092230 76.37%)",
+                  opacity: "1",
+                  color: "white",
+                  fontWeight: "bold",
+                  paddingTop: "20px",
+                  paddingBottom: "20px",
+                  borderRadius: "8px",
+                  marginLeft: "85px",
+
+                }}
+                onClick={onFrameContainerClick}>
+              Sign In
+            </button>
+          </div>
         </div>
       </div>
     </section>
