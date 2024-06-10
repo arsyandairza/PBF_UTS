@@ -153,9 +153,6 @@ const ManageUser: FunctionComponent = () => {
           </ul>
         )}
         <div style={{ position: 'absolute', bottom: '20px', right: '20px' }}>
-          <button onClick={() => console.log('Delete all data')} style={{ background: '#f00', color: '#fff', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
-            Delete Data
-          </button>
         </div>
       </div>
     </div>
